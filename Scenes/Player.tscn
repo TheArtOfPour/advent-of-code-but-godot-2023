@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://bewyb35h0mohp"]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_wmuxw"]
+[ext_resource type="Texture2D" uid="uid://2x53rkns7feh" path="res://Textures/cursor.png" id="2_od5vb"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_xc2g5"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wydro"]
+radius = 0.360158
+height = 1.80152
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_wmuxw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_xc2g5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.926077, 0)
+shape = SubResource("CapsuleShape3D_wydro")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.67939, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+current = true
+fov = 70.0
+
+[node name="CenterContainer" type="CenterContainer" parent="Head/Camera3D"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 568.5
+offset_top = 316.5
+offset_right = -568.5
+offset_bottom = -316.5
+
+[node name="TextureRect" type="TextureRect" parent="Head/Camera3D/CenterContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_od5vb")
+stretch_mode = 3
+
+[node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D"]
+transform = Transform3D(3, 0, 0, 0, -1.31134e-07, -3, 0, 3, -1.31134e-07, 0, 0, -0.416593)
+collision_mask = 2
+collide_with_areas = true

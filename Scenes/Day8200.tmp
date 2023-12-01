@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b86j8ecal8mc5"]
+
+[ext_resource type="Script" path="res://Scripts/Day1.gd" id="1_w4j0e"]
+
+[node name="Day1" type="Node3D"]
+script = ExtResource("1_w4j0e")
+
+[node name="Label3D" type="Label3D" parent="."]
+text = "Please wait..."

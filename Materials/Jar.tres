@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dh60brjxy27hq"]
+
+[resource]
+transparency = 1
+blend_mode = 3
+cull_mode = 1
+diffuse_mode = 3
+roughness = 0.2
+emission_enabled = true
+emission = Color(0.647059, 0.647059, 0.647059, 1)
+subsurf_scatter_strength = 0.33
