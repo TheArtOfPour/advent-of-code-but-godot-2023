@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://b86j8ecal8mc5"]
+[gd_scene load_steps=7 format=3 uid="uid://b86j8ecal8mc5"]
 
 [ext_resource type="Script" path="res://Scripts/Day1.gd" id="1_w4j0e"]
 [ext_resource type="PackedScene" uid="uid://k7bk35app0ux" path="res://Assets/Star.glb" id="2_d25q3"]
@@ -7,16 +7,26 @@
 height = 1.2331
 radius = 0.984604
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_jkwef"]
+height = 0.162906
+radius = 13.9171
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dsrb7"]
+albedo_color = Color(0.286275, 1, 0.509804, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_p7vrc"]
+material = SubResource("StandardMaterial3D_dsrb7")
+
 [node name="Day1" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01439, 0)
 script = ExtResource("1_w4j0e")
 
 [node name="Label3D" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.769858, -0.889166)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.53494, -0.889166)
 text = "Please wait..."
 
 [node name="Test2" type="Area3D" parent="."]
-transform = Transform3D(0.38473, 0, 0.923029, 0, 1, 0, -0.923029, 0, 0.38473, -4.81039, 0, 0.495688)
+transform = Transform3D(0.38473, 0, 0.923029, 0, 1, 0, -0.923029, 0, 0.38473, -3.66157, 1.11239, 0.86154)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Test2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.69902, -0.515973, 0)
@@ -28,7 +38,7 @@ modulate = Color(0.454902, 1, 0, 1)
 text = "Test Input 1B"
 
 [node name="Test" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.04765, 0, -0.0518165)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.52135, 1.11239, 0.14244)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Test"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.69902, -0.515973, 0)
@@ -40,7 +50,7 @@ modulate = Color(0.929412, 1, 0.101961, 1)
 text = "Test Input 1"
 
 [node name="Full" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.43182, 0, -0.0219693)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.11177, 1.11239, 0.563392)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Full"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.71824, -0.515973, 0)
@@ -52,7 +62,7 @@ modulate = Color(1, 0.427451, 0, 1)
 text = "Full Input 1"
 
 [node name="Full2" type="Area3D" parent="."]
-transform = Transform3D(0.510633, 0, -0.859799, 0, 1, 0, 0.859799, 0, 0.510633, 5.98858, -0.00417089, 4.32205)
+transform = Transform3D(0.510633, 0, -0.859799, 0, 1, 0, 0.859799, 0, 0.510633, 2.98168, 1.10822, 4.11932)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Full2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.71824, -0.515973, 0)
@@ -64,10 +74,28 @@ modulate = Color(1, 0.117647, 0.160784, 1)
 text = "Full Input 1B"
 
 [node name="Star2" parent="." instance=ExtResource("2_d25q3")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.159514, 1.27912, 0.348032)
+transform = Transform3D(0.516832, 0, 0.856087, 0, 1, 0, -0.856087, 0, 0.516832, 1.78655, 2.12322, -1.09505)
 
 [node name="Star" parent="." instance=ExtResource("2_d25q3")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.42039, 0.852744, -0.209462)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5019, 2.06226, -0.440887)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -0.08, 0)
+shape = SubResource("CylinderShape3D_jkwef")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(27.339, 0, 0, 0, 0.122, 0, 0, 0, 28, 0, 0, 0)
+mesh = SubResource("CylinderMesh_p7vrc")
+skeleton = NodePath("")
+
+[node name="Label3D2" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.810778, 3.19275, -1.92654)
+modulate = Color(0.713726, 0.00784314, 0.113725, 1)
+outline_modulate = Color(0.00392157, 1, 0.0941176, 1)
+text = "DAY 1"
+font_size = 256
 
 [connection signal="body_entered" from="Test2" to="." method="_on_test_2_body_entered"]
 [connection signal="body_entered" from="Test" to="." method="_on_test_body_entered"]
